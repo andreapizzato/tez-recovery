@@ -1,0 +1,29 @@
+{
+  "name": "tez-bf",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js"
+  },
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreapizzato/tez-bf.git"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "bip39": "^2.5.0",
+    "bs58check": "^2.1.2",
+    "chalk": "^2.4.1",
+    "clear": "^0.1.0",
+    "cli-progress": "^2.1.0",
+    "configstore": "^4.0.0",
+    "figlet": "^1.2.0",
+    "inquirer": "^6.2.0",
+    "libsodium-wrappers": "^0.7.3",
+    "minimist": "^1.2.0",
+    "xmlhttprequest": "^1.8.0"
+  }
+}
