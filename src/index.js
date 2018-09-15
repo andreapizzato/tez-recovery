@@ -1,27 +1,38 @@
-const clear = require('clear');
-const chalk = require('chalk');
-const figlet = require('figlet');
-const minimist = require('minimist');
+const doTest = require('./commands/test');
 
-const doConfig = require('./commands/config');
-const doStart = require('./commands/start');
+try {
+  const clear = require('clear');
+  const chalk = require('chalk');
+  const figlet = require('figlet');
+  const minimist = require('minimist');
 
-figlet('Tezos wallet bruteforcer', (err, data) => {
-  clear();
+  const doHelp = require('./commands/help');
+  const doConfig = require('./commands/config');
+  const doRecovery = require('./commands/recovery');
 
-  if(err){
-    console.error(err);
-    return;
-  }
+  figlet('Tezos Wallet Recovery', (err, data) => {
+    clear();
 
-  console.log(chalk.magenta(`\n${data}\n`));
+    if(err){
+      console.error(err);
+      return;
+    }
 
-  const argv = minimist(process.argv.slice(2));
+    console.log(chalk.magenta(`\n${data}\nv1.0.0\n\n`));
 
-  if (argv.config) {
-    doConfig();
-  } else if(argv.start) {
-    doStart();
-  } else {
-  }
-});
+    const argv = minimist(process.argv.slice(2));
+    const comp = argv._[0] || null;
+
+    if (argv.config || comp == 'config') {
+      doConfig();
+    } else if(argv.recovery || comp == 'recovery') {
+      doRecovery();
+    } else if(argv.test || comp == 'test'){
+      doTest();
+    } else {
+      doHelp();
+    }
+  });
+} catch(err){
+  doTest();
+}

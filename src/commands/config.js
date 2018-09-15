@@ -11,7 +11,9 @@ const {
   MODE,
   MODES,
   MATRIX,
-  CHARSET
+  CHARSET,
+  JUMP,
+  LENGTH
 } = require('../constants');
 
 const Optimizer = require('../optimizer');
@@ -106,6 +108,7 @@ function doPasswordCharsetOptimization(){
       console.log(chalk.yellow(`\nwhich includes ${charset.length} chars, ${AMERICAN_CHARSET.length - charset.length} less than the full American charset.`));
 
       config.set(CHARSET, charset);
+      doLengthSelection();
     } else {
       console.log(chalk.magenta("\nSeems you don\'t remember anything useful, let\'s move to manual charset selection."));
       doPasswordCharsetSelection();
@@ -137,10 +140,57 @@ function doPasswordCharsetSelection(){
       }
 
       config.set(CHARSET, charset);
+      doLengthSelection();
     } else {
       doPasswordCharsetSelection();
     }
   });
+}
+
+function doLengthSelection(){
+  let questions = [
+    {
+      type: 'input',
+      name: 'size',
+      message: `What password length should we bruteforce? (min. 1) ${chalk.magenta('Please try with what you believe is the shortest length before trying higher numbers.')}`
+    }
+  ];
+
+  inquirer.prompt(questions).then(answers => {
+    if(answers.size){
+      config.set(LENGTH, parseInt(answers.size, 10));
+      doPatternSelection();
+    } else {
+      doLengthSelection();
+    }
+  });
+}
+
+function doPatternSelection(){
+  let questions = [
+    {
+      type: 'list',
+      name: 'jump',
+      message: `Would you like to skip some combinations? ${chalk.magenta('Remember: less combinations, less time to find your password.')}`,
+      choices: [
+        { name: "Yes, skip identical chars couples (e.g. aa or TT)", value: 2 },
+        { name: "Yes, skip identical chars triplets (e.g. aaa or TTT)", value: 3 },
+        { name: "No, check all the combinations", value: -1 },
+      ],
+    }
+  ];
+
+  inquirer.prompt(questions).then(answers => {
+    if(typeof answers.jump !== 'undefined'){
+      config.set(JUMP, answers.jump);
+    }
+
+    doBye();
+  });
+}
+
+function doBye(){
+  console.log(chalk.yellow(`\n\nOk, we're done with confogirations. Run:\n\t${chalk.cyan('npm start --start')}\n\n`));
 }
 
 function doConfig(){

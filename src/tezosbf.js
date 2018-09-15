@@ -7,12 +7,14 @@ const {
   MODES,
   MATRIX,
   CHARSET,
+  LENGTH,
+  JUMP,
   ANCHOR
 } = require('./constants');
 
 const propsToCheck = {
   [MODES.PWSEEDS]: [WALLET, MNEMONIC, MATRIX],
-  [MODES.BRUTEFORCE]: [WALLET, MNEMONIC, CHARSET]
+  [MODES.BRUTEFORCE]: [WALLET, MNEMONIC, CHARSET, LENGTH, JUMP]
 };
 
 const TezosBF = function(config) {
@@ -56,7 +58,7 @@ TezosBF.prototype.__constructGenerator = function(){
   } else {
     var CharsetGenerator = require('./generators/charset');
 
-    this.generator = new CharsetGenerator(this[CHARSET], 10, anchor);
+    this.generator = new CharsetGenerator(this[CHARSET], this[LENGTH], anchor, { jump: this[JUMP] });
     this.totalPasswordsCount = this.generator.getMaxPasswordsCount();
   }
 };

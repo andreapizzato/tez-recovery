@@ -1,8 +1,11 @@
-const CharsetGenerator = function(charset, length, anchor = null) {
+const _defOptions = {
+  _jump: 2,
+}
+
+const CharsetGenerator = function(charset, length, anchor = null, options) {
   this._genCharset = charset;
   this._genRadix = charset.length;
-  this._jumpDoubles = false;
-  this._jumpTriplets = true;
+  this._jump = (options && options.jump) || _defOptions._jump;
   this._genIndex = this.__startIndex(length);
   this._length = length;
   
@@ -17,16 +20,7 @@ const CharsetGenerator = function(charset, length, anchor = null) {
 };
 
 CharsetGenerator.prototype.__startIndex = function(length) {
-  if (this._jumpDoubles) {
-    let count = 1;
-    for (let i = 0; i < length; i++) {
-      count = count * (length - i);
-    }
-
-    return count;
-  } else {
-    return Math.pow(this._genRadix, length - 1);
-  }
+  return Math.pow(this._genRadix, length - 1);
 };
 
 CharsetGenerator.prototype.getPasswordsCount = function() {
@@ -55,9 +49,9 @@ CharsetGenerator.prototype.next = function() {
   let shift = 0;
   let end = false;
 
-  const checkForJump = this._jumpDoubles
+  const checkForJump = this._jump == 2
     ? (index, length, n) => (index < (length - 1) && this._map[index + 1] == n) ? 1 : 0
-    : (this._jumpTriplets
+    : (this._jump == 3
       ? (index, length, n) => (index < (length - 2) && this._map[index + 1] == n && this._map[index + 2] == n) ? 1 : 0
       : () => 0
     );

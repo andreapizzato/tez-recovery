@@ -26,6 +26,9 @@ const MODES = {
 };
 const MATRIX = 'matrix';
 const CHARSET = 'charset';
+const LENGTH = 'size';
+const JUMP = 'jump';
+
 const ANCHOR = 'anchor';
 
 module.exports = {
@@ -40,5 +43,8 @@ module.exports = {
   MODES,
   MATRIX,
   CHARSET,
-  ANCHOR
+  LENGTH,
+  JUMP,
+
+  ANCHOR,
 };
