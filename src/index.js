@@ -18,7 +18,7 @@ try {
       return;
     }
 
-    console.log(chalk.magenta(`\n${data}\n`));
+    console.log(chalk.magenta(`\n${data}\nv1.0.0\n\n`));
 
     const argv = minimist(process.argv.slice(2));
     const comp = argv._[0] || null;
