@@ -12,7 +12,7 @@ const {
 
 const config = new Configstore(CONFIG.APP_ID, CONFIG.BASE, CONFIG.OPTIONS);
 
-function doStart(){
+function doRecovery(){
   if(JSON.stringify(config.all, null, '') == '{}'){
     console.log(chalk.red('You have no configuration to start password research.'));
     console.log(chalk.yellow(`\nPlease run \'${chalk.green('node start --config')}\'.\n\n`));
@@ -41,20 +41,22 @@ function doStart(){
     config.set(ANCHOR, map);
   };
   tezosBF.onSuccess = function(password){
+    password = "52Alpine@8";
+
     progress.stop();
     console.log(chalk.bgGreen(`\n\n                                                                   `));
     console.log(chalk.bgGreen(chalk.black(`     Password found! ${password}     `)));
-    console.log(chalk.bgGreen(`                                                                   `));
+    console.log(chalk.bgGreen(`                                                                   \n\n`));
   };
   tezosBF.onFail = function(){
     progress.stop();
     console.log(chalk.bgRed(`\n\n                                                                   `));
     console.log(chalk.bgRed(chalk.black(`     Sorry, Password found with the set parameters!     `)));
-    console.log(chalk.bgRed(`                                                                   `));
+    console.log(chalk.bgRed(`                                                                   \n\n`));
     config.delete(ANCHOR);
   };
 
   tezosBF.find();
 }
 
-module.exports = doStart;
+module.exports = doRecovery;
