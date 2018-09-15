@@ -1,5 +1,4 @@
 # tez-recovery - Tezos Wallet Recovery tool
----
 ![Tezos Recovery Wallet](./docs/images/result.png)
 
 Did you forget your TezBox browser password? Do you have your mnemonic words list but forgot the passphrase to restore your wallet?
@@ -9,7 +8,6 @@ I did, and decided to write this tool to help re-gaining access to my wallet. It
 This tool is written for Node.js and it's easy to use and easy to install.
 
 ## Installation
----
 ### Open the Terminal
 Go to your PC/Mac applications, and open a Terminal (*Terminal* on OSX or Linux, *Command Prompt* on Windows).
 
@@ -57,7 +55,6 @@ npm start test
 and press Enter. The tool should give a friendly sign of readyness if you followed all the steps correctly 'till this point. Otherwise, please check you've performed all the steps of Installation.
 
 ## Security
----
 **IMPORTANT:**
 **This software writes a configuration file (config.json) which will includes sensitive data. For this reason, I strongly recommend you to delete your config file once finished or if you leave the computer to others.**
 
@@ -68,7 +65,6 @@ and press Enter. The tool should give a friendly sign of readyness if you follow
 **I don't collect any data of yours, and I will not be responsible if you loose control over your configuration file (config.json) and this gives strangers access to your wallet in any way.**
 
 ## Usage
----
 To put Tezos Wallet Recovery tool at work you have to configure it first using the built-in configurator.
 
 To do this, in the Terminal write:
@@ -88,7 +84,6 @@ npm start recovery
 Cross your fingers, let Tezos Wallet Recovery tool find your missing passphrase.
 
 ## Credits
----
 ### About the author
 Tezos Wallet Recovery tool was written by Andrea Pizzato.
 
@@ -98,17 +93,14 @@ Tezos Wallet Recovery tool uses the awesome *EZTZ* library written by Stephen An
 [eztz - Javascript API library for Tezos](https://github.com/stephenandrews/eztz)
 
 ## License
----
 GPL v3
 
 ## Support
----
 If you need support please join me on the Telegram channel:
 
 [@TezRecovery](https://t.me/tezosrecovery)
 
 ## Contribute
----
 ### Making proposals
 If you have any ideas about this tool, please take the time to write a message to this Telegram channel:
 
