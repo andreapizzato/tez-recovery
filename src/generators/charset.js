@@ -5,7 +5,7 @@ const _defOptions = {
 const CharsetGenerator = function(charset, length, anchor = null, options) {
   this._genCharset = charset;
   this._genRadix = charset.length;
-  this._jump = (options && options._jump) || _defOptions._jump;
+  this._jump = (options && options.jump) || _defOptions._jump;
   this._genIndex = this.__startIndex(length);
   this._length = length;
   

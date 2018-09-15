@@ -175,7 +175,7 @@ function doPatternSelection(){
       choices: [
         { name: "Yes, skip identical chars couples (e.g. aa or TT)", value: 2 },
         { name: "Yes, skip identical chars triplets (e.g. aaa or TTT)", value: 3 },
-        { name: "No, check all the combinations", value: 0 },
+        { name: "No, check all the combinations", value: -1 },
       ],
     }
   ];
