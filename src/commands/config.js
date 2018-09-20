@@ -13,6 +13,9 @@ const {
   MATRIX,
   CHARSET,
   JUMP,
+  TYPE,
+  TYPES,
+  EMAIL,
   LENGTH
 } = require('../constants');
 
@@ -227,6 +230,50 @@ function doConfig(){
   });
 }
 
+function doEmailConfig(){
+  let questions = [
+    {
+      type: 'input',
+      name: 'email',
+      message: 'Type here your ICO wallet email:'
+    }
+  ];
+
+  inquirer.prompt(questions).then(answers => {
+    config.set(WALLET, answers.wallet);
+
+    if(answers.email && answers.email.trim() != ""){
+      config.set(EMAIL, answers.email);
+      doConfig();
+    } else {
+      doEmailConfig();
+    }
+  });
+}
+
+function doTypeConfig(){
+  let questions = [
+    {
+      type: 'list',
+      name: 'isICO',
+      message: `Is your Wallet an ICO one? ${chalk.magenta('If you don\'t know, the right answer is No.')}`,
+      choices: ['Yes', 'No'],
+    }
+  ];
+
+  inquirer.prompt(questions).then(answers => {
+    config.set(WALLET, answers.wallet);
+
+    if(Yes(answers.isICO)){
+      config.set(TYPE, TYPES.ICO);
+      doEmailConfig();
+    } else {
+      config.set(TYPE, TYPES.NORMAL);
+      doConfig();
+    }
+  });
+}
+
 function doCheckConfig(){
   if(JSON.stringify(config.all, null, '') == '{}'){
     doConfig();
@@ -243,7 +290,7 @@ function doCheckConfig(){
     inquirer.prompt(questions).then(answers => {
       if(Yes(answers.overwrite)){
         config.all = {};
-        doConfig();
+        doTypeConfig();
       } else {
         console.log(chalk.yellow('\nConfiguration has not been edited.'));
       }
