@@ -28,6 +28,12 @@ const MATRIX = 'matrix';
 const CHARSET = 'charset';
 const LENGTH = 'size';
 const JUMP = 'jump';
+const TYPE = 'type';
+const TYPES = {
+  NORMAL: 'normal',
+  ICO: 'ico'
+};
+const EMAIL = 'email';
 
 const ANCHOR = 'anchor';
 
@@ -45,6 +51,9 @@ module.exports = {
   CHARSET,
   LENGTH,
   JUMP,
+  TYPE,
+  TYPES,
+  EMAIL,
 
   ANCHOR,
 };

@@ -6,6 +6,7 @@ try {
   const figlet = require('figlet');
   const minimist = require('minimist');
 
+  const package = require('../package.json');
   const doHelp = require('./commands/help');
   const doConfig = require('./commands/config');
   const doRecovery = require('./commands/recovery');
@@ -18,7 +19,7 @@ try {
       return;
     }
 
-    console.log(chalk.magenta(`\n${data}\nv1.0.0\n\n`));
+    console.log(chalk.magenta(`\n${data}\nv${package.version}\n\n`));
 
     const argv = minimist(process.argv.slice(2));
     const comp = argv._[0] || null;

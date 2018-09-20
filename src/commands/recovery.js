@@ -12,6 +12,22 @@ const {
 
 const config = new Configstore(CONFIG.APP_ID, CONFIG.BASE, CONFIG.OPTIONS);
 
+function publishResult(fn, text = "", padding = 5){
+  const size = 2 * padding + text.length;
+  let emptyLine = "";
+  let textLine = text;
+
+  for(let i=0; i<size; i++){
+    if(textLine.length < size){
+      textLine = ` ${textLine} `;
+    }
+
+    emptyLine += " ";
+  }
+
+  console.log(fn(`${emptyLine}\n${textLine}\n${emptyLine}`));
+}
+
 function doRecovery(){
   if(JSON.stringify(config.all, null, '') == '{}'){
     console.log(chalk.red('You have no configuration to start password research.'));
@@ -41,18 +57,11 @@ function doRecovery(){
     config.set(ANCHOR, map);
   };
   tezosBF.onSuccess = function(password){
-    password = "52Alpine@8";
-
-    progress.stop();
-    console.log(chalk.bgGreen(`\n\n                                                                   `));
-    console.log(chalk.bgGreen(chalk.black(`     Password found! ${password}     `)));
-    console.log(chalk.bgGreen(`                                                                   \n\n`));
+    publishResult((t) => chalk.bgGreen(chalk.black(t)), `Password found! ${password}`);
   };
   tezosBF.onFail = function(){
     progress.stop();
-    console.log(chalk.bgRed(`\n\n                                                                   `));
-    console.log(chalk.bgRed(chalk.black(`     Sorry, Password found with the set parameters!     `)));
-    console.log(chalk.bgRed(`                                                                   \n\n`));
+    publishResult((t) => chalk.bgRed(chalk.black(t)), "Sorry, Password found with the set parameters!");
     config.delete(ANCHOR);
   };
 

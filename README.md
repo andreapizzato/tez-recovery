@@ -1,13 +1,39 @@
 # tez-recovery - Tezos Wallet Recovery tool
-![Tezos Recovery Wallet](./docs/images/result.png)
+![Tezos Recovery Wallet](./docs/images/config.png)
 
 Did you forget your TezBox browser password? Do you have your mnemonic words list but forgot the passphrase to restore your wallet?
 
 I did, and decided to write this tool to help re-gaining access to my wallet. It worked, and now it's available to you too.
 
+Tezos Wallet Recovery is not only a mere *brute-forcer*. It has the ability to look for passwords based on **known text patterns** that you may have used, **speeding up the recovery process by orders of magnitude**.  The tool also offers a **friendly interface** to help you through the configuration process.
+
 This tool is written for Node.js and it's easy to use and easy to install.
 
+## Table of contents
+1. [Features](#features)
+2. [Installation](#installation)
+3. [Security notice](#security)
+4. [Usage](#usage)
+5. [Credits](#credits)
+6. [License](#license)
+7. [Get support](#support)
+8. [Contribute](#contribute)
+    * [Donating](#donate)
+
+## Features
+<a name="features"></a>
+
+* Easy to install
+* Easy to configure
+* Can use a password-token-matrix algorithm
+* Can use a brute-force algorithm
+* Can generate a restricted charset for faster recoveries
+* Can work completely offline after installation
+* Can check for passphrase matches at a ~120 tests/second rate
+
 ## Installation
+<a name="documentation"></a>
+
 ### Open the Terminal
 Go to your PC/Mac applications, and open a Terminal (*Terminal* on OSX or Linux, *Command Prompt* on Windows).
 
@@ -55,16 +81,20 @@ npm start test
 and press Enter. The tool should give a friendly sign of readyness if you followed all the steps correctly 'till this point. Otherwise, please check you've performed all the steps of Installation.
 
 ## Security
+<a name="security"></a>
+
 **IMPORTANT:**
 **This software writes a configuration file (config.json) which will includes sensitive data. For this reason, I strongly recommend you to delete your config file once finished or if you leave the computer to others.**
 
 **Please DON'T use this software in public computer (like internet cafès, libraries or schools).**
 
-**If you're concerned about security please put yourself offline as the recovery process is started.**
+**If you're concerned about security please put yourself offline after right before the configure/recovery process.**
 
 **I don't collect any data of yours, and I will not be responsible if you loose control over your configuration file (config.json) and this gives strangers access to your wallet in any way.**
 
 ## Usage
+<a name="usage"></a>
+
 To put Tezos Wallet Recovery tool at work you have to configure it first using the built-in configurator.
 
 To do this, in the Terminal write:
@@ -84,6 +114,8 @@ npm start recovery
 Cross your fingers, let Tezos Wallet Recovery tool find your missing passphrase.
 
 ## Credits
+<a name="credits"></a>
+
 ### About the author
 Tezos Wallet Recovery tool was written by Andrea Pizzato.
 
@@ -93,14 +125,20 @@ Tezos Wallet Recovery tool uses the awesome *EZTZ* library written by Stephen An
 [eztz - Javascript API library for Tezos](https://github.com/stephenandrews/eztz)
 
 ## License
+<a name="license"></a>
+
 GPL v3
 
-## Support
+## Get support
+<a name="support"></a>
+
 If you need support please join me on the Telegram channel:
 
 [@TezRecovery](https://t.me/tezosrecovery)
 
 ## Contribute
+<a name="contribute"></a>
+
 ### Making proposals
 If you have any ideas about this tool, please take the time to write a message to this Telegram channel:
 
@@ -113,8 +151,12 @@ If you have enhancements or bug fixes feel free to make a pull request. I'll mer
 If you spot a bug using this software, please open an issue on [GitHub's issue tracker](https://github.com/andreapizzato/tez-recovery/issues).
 
 ### Donating
+<a name="donate"></a>
+
 If this tool helped you regaining access to your lost wallet, please consider making a donation at my **Tezos wallet address**:
 ```
 tz1WAfg34G7aTxi4Y96c4yWJ2trU5YNNLweV
 ```
+which you can [view on TezScan.io](http://tzscan.io/tz1WAfg34G7aTxi4Y96c4yWJ2trU5YNNLweV).
+
 This will help me improving Tezos Wallet Recovery tool and other open source software to help other people like you.

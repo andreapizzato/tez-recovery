@@ -9,12 +9,15 @@ const {
   CHARSET,
   LENGTH,
   JUMP,
+  TYPE,
+  TYPES,
+  EMAIL,
   ANCHOR
 } = require('./constants');
 
 const propsToCheck = {
-  [MODES.PWSEEDS]: [WALLET, MNEMONIC, MATRIX],
-  [MODES.BRUTEFORCE]: [WALLET, MNEMONIC, CHARSET, LENGTH, JUMP]
+  [MODES.PWSEEDS]: [WALLET, TYPE, MNEMONIC, MATRIX],
+  [MODES.BRUTEFORCE]: [WALLET, TYPE, MNEMONIC, CHARSET, LENGTH, JUMP]
 };
 
 const TezosBF = function(config) {
@@ -34,6 +37,11 @@ const TezosBF = function(config) {
 
     this[MODE] = config[MODE];
     this[ANCHOR] = config[ANCHOR] || null;
+    this[EMAIL] = config[EMAIL] || null;
+
+    if(this[TYPE] == TYPES.ICO && !this[EMAIL]){
+      this.isValid = false;
+    }
   } else {
     this.isValid = false;
   }
@@ -80,7 +88,7 @@ TezosBF.prototype.__checkPassword = function(password, cb) {
 };
 
 TezosBF.prototype.__checkNextPassword = function() {
-  const password = this.generator.next();
+  const password = (this[EMAIL] || "") + this.generator.next();
 
   if (password === false) {
     if(typeof this.onTick === 'function'){
