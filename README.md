@@ -61,6 +61,11 @@ cd [PATH/TO/YOUR/TEZ-RECOVERY/FOLDER]
 ```
 then press Enter.
 
+If you're used to git, you can also clone the repo *instead* of downloading the ZIP.
+```bash
+git clone https://github.com/andreapizzato/tez-recovery.git
+```
+
 ### Let it automatically grab the dependencies
 If all has gone like planned, at this point you should be able to let Tezos Wallet Recovery tool download its dependencies automatically.
 It will download <15MB of files from the internet.
@@ -88,7 +93,7 @@ and press Enter. The tool should give a friendly sign of readyness if you follow
 
 **Please DON'T use this software in public computer (like internet cafès, libraries or schools).**
 
-**If you're concerned about security please put yourself offline after right before the configure/recovery process.**
+**If you're concerned about security please put yourself offline BEFORE the configure/recovery process.**
 
 **I don't collect any data of yours, and I will not be responsible if you loose control over your configuration file (config.json) and this gives strangers access to your wallet in any way.**
 
@@ -157,6 +162,6 @@ If this tool helped you regaining access to your lost wallet, please consider ma
 ```
 tz1WAfg34G7aTxi4Y96c4yWJ2trU5YNNLweV
 ```
-which you can [view on TezScan.io](http://tzscan.io/tz1WAfg34G7aTxi4Y96c4yWJ2trU5YNNLweV).
+which you can [view on TzScan.io](http://tzscan.io/tz1WAfg34G7aTxi4Y96c4yWJ2trU5YNNLweV).
 
 This will help me improving Tezos Wallet Recovery tool and other open source software to help other people like you.
