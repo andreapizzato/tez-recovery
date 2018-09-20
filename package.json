@@ -1,11 +1,16 @@
 {
   "name": "tez-recovery",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/index.js"
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "start": "node src/index.js",
+    "precommit": "npm run test",
+    "commit": "git-cz",
+    "validate-commit": "validate-commit-msg",
+    "git-hook": "validate-commit-msg && npm run lint",
+    "release": "git checkout master && git pull origin master && standard-version && git push --follow-tags origin master && git checkout develop"
   },
   "author": "",
   "repository": {
@@ -25,5 +30,16 @@
     "libsodium-wrappers": "^0.7.3",
     "minimist": "^1.2.0",
     "xmlhttprequest": "^1.8.0"
+  },
+  "devDependencies": {
+    "commitizen": "^2.10.1",
+    "conventional-recommended-bump": "^4.0.1",
+    "standard-version": "^4.4.0",
+    "validate-commit-msg": "^2.14.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
