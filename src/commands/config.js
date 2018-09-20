@@ -257,7 +257,7 @@ function doTypeConfig(){
       type: 'list',
       name: 'isICO',
       message: `Is your Wallet an ICO one? ${chalk.magenta('If you don\'t know, the right answer is No.')}`,
-      choices: ['Yes', 'No'],
+      choices: ['No', 'Yes'],
     }
   ];
 
@@ -276,7 +276,7 @@ function doTypeConfig(){
 
 function doCheckConfig(){
   if(JSON.stringify(config.all, null, '') == '{}'){
-    doConfig();
+    doTypeConfig();
   } else {
     let questions = [
       {
