@@ -10,7 +10,7 @@
     "commit": "git-cz",
     "validate-commit": "validate-commit-msg",
     "git-hook": "validate-commit-msg && npm run lint",
-    "release": "standard-version --no-verify"
+    "release": "git checkout master && git pull origin master && standard-version && git push --follow-tags origin master && git checkout develop"
   },
   "author": "",
   "repository": {
