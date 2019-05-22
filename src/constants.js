@@ -21,7 +21,8 @@ const WALLET = 'wallet';
 const MNEMONIC = 'mnemonic';
 const MODE = 'mode';
 const MODES = {
-  PWSEEDS: 'pwseeds',
+  PERMUTATION: ' permutation',
+
   BRUTEFORCE: 'bruteforce'
 };
 const MATRIX = 'matrix';
