@@ -22,7 +22,7 @@
     "bip39": "3.0.2",
     "braces": "3.0.2",
     "bs58check": "2.1.2",
-    "chalk": "^3.0.0",
+    "chalk": "^4.0.0",
     "clear": "^0.1.0",
     "cli-progress": "^3.5.0",
     "configstore": "^5.0.0",
