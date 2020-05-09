@@ -1,6 +1,28 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [1.3.2](https://github.com/andreapizzato/tez-bf/compare/v1.3.1...v1.3.2) (2020-01-08)
+
+
+### Bug Fixes
+
+* **app:** Update dependencies to latest vestions ([7c5371a](https://github.com/andreapizzato/tez-bf/commit/7c5371a40efbf7978e665ce161d7436e23285bc4))
+
+<a name="1.3.0"></a>
+# [1.3.0](https://github.com/andreapizzato/tez-bf/compare/v1.2.0...v1.3.0) (2019-05-22)
+
+
+### Bug Fixes
+
+* **app:** Fix versioning ([0dda7c6](https://github.com/andreapizzato/tez-bf/commit/0dda7c6))
+
+
+### Features
+
+* **eztz:** Update EZTZ and fix library versions ([c170ae2](https://github.com/andreapizzato/tez-bf/commit/c170ae2))
+
+
 
 <a name="1.2.0"></a>
 # [1.2.0](https://github.com/andreapizzato/tez-bf/compare/v1.1.2...v1.2.0) (2018-09-20)
