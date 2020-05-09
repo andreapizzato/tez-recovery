@@ -30,7 +30,7 @@
     "inquirer": "^7.0.3",
     "js-combinatorics": "^0.5.5",
     "libsodium-wrappers": "0.5.4",
-    "minimist": "^1.2.0",
+    "minimist": "1.2.5",
     "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
