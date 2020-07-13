@@ -36,7 +36,7 @@
   "devDependencies": {
     "commitizen": "^4.0.3",
     "conventional-recommended-bump": "^6.0.5",
-    "standard-version": "^7.0.1",
+    "standard-version": "^8.0.1",
     "validate-commit-msg": "^2.14.0"
   },
   "config": {
